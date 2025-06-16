@@ -48,6 +48,7 @@ final class DSB2ex1Q3Controller extends AbstractController
             
             // Redirection vers la page de résultat
             return $this->redirectToRoute('app_dsb2ex1_q3_result', [
+                'civilite' => $data['civilite'],
                 'nom' => $data['nom'],
                 'prenom' => $data['prenom'],
                 'age' => $age
@@ -60,14 +61,14 @@ final class DSB2ex1Q3Controller extends AbstractController
     }
      #[Route('/dsb2ex1_q3/result', name: 'app_dsb2ex1_q3_result')]
     public function result(Request $request): Response
-    {
+    {    $civilite = $request->query->get('civilite');
         $nom = $request->query->get('nom');
         $prenom = $request->query->get('prenom');
         $age = $request->query->get('age');
 
         return $this->render('dsb2ex1_q3/result.html.twig', [
            
-            'civilite' => $data['civilite'],
+            'civilite' => $civilite,
             'nom' => $nom,
             'prenom' => $prenom,
             'age' => $age,
