@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Résultat{% endblock %}
+
+{% block body %}
+    <h1>Résultat</h1>
+    
+    {% if age >= 18 %}
+        {% if civilite == 'M' %}
+            <p>Bonjour Monsieur {{ nom }}, vous êtes majeur et vous êtes le bienvenu dans ce site!!!</p>
+        {% elseif civilite == 'F' %}
+            <p>Bonjour Madame {{ nom }}, vous êtes majeure et vous êtes la bienvenue dans ce site!!!</p>
+        {% else %}
+            <p>Bonjour {{ prenom }} {{ nom }}, vous êtes majeur(e) et vous êtes le bienvenu(e) dans ce site!!!</p>
+        {% endif %}
+    {% else %}
+        <p>Bonjour {{ prenom }} {{ nom }}, vous êtes mineur, vous n'avez pas le droit d'être sur ce site!!!</p>
+    {% endif %}
+{% endblock %}
